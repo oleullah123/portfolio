@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Engr.Md.Oleullah (Oli) — Electrical Engineer, Cyber Security Professional, Entrepreneur & Researcher from Bangladesh. Managing Director of Health Guard Bangladesh Ltd." />
+  <meta name="keywords" content="Engr Md.Oleullah (Oli), EEE Engineer Bangladesh, Cyber Security, Web Developer, Health Guard Bangladesh, Khabor Bangla, Researcher" />
+  <meta name="author" content="Engr.Md.Oleullah (Oli)" />
+  <meta property="og:title" content="Engr.Md.Oleullah (Oli) — Engineer · Security · Entrepreneur" />
+  <meta property="og:description" content="Personal website of Engr.Md.Oleullah (Oli) — a multi-disciplinary engineer, cyber security expert, researcher, and entrepreneur from Bangladesh." />
+  <meta property="og:type" content="website" />
+  <title>Engr.Md.Oleullah (Oli) — Engineer · Security · Entrepreneur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- CANVAS BACKGROUND -->
+<canvas id="particleCanvas"></canvas>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+<!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <span class="logo-bracket">&lt;</span>Md.Oleullah (Oli)<span class="logo-bracket">/&gt;</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#ventures">Ventures</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">🇧🇩 Dhaka, Bangladesh</div>
+      <h1 class="hero-name">Engr. <span class="glow-text">Md.Oleullah (Oli)</span></h1>
+      <div class="hero-typewriter">
+        <span class="type-prefix">I am </span><span class="typed" id="typed"></span>
+      </div>
+      <h2 class="hero-headline">Engineering Innovation,<br>Cyber Security &amp;<br><span class="accent-line">Business Leadership</span></h2>
+      <p class="hero-sub">EEE Graduate · Cyber Security Expert · Entrepreneur · Researcher · Publisher · Healthcare Entrepreneur</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">Hire Me</a>
+        <a href="#research" class="btn btn-ghost">View Research</a>
+        <a href="https://wa.me/8801617700502" target="_blank" class="btn btn-wa">💬 WhatsApp</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><span class="hstat-n">3+</span><span class="hstat-l">Research Papers</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-n">3+</span><span class="hstat-l">Ventures</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-n">7+</span><span class="hstat-l">Disciplines</span></div>
+      </div>
+    </div>
+    <div class="hero-avatar">
+      <div class="avatar-ring outer-ring"></div>
+      <div class="avatar-ring inner-ring"></div>
+      <div class="avatar-photo">
+        <img src="profile.jpg" alt="Engr.Md.Oleullah (Oli)" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="avatar-placeholder">EO</div>
+      </div>
+      <div class="avatar-badge badge-1">⚡ EEE</div>
+      <div class="avatar-badge badge-2">🔐 Cyber</div>
+      <div class="avatar-badge badge-3">💼 MD</div>
+      <div class="avatar-badge badge-4">🔬 Research</div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ ABOUT ═══════════════════════════════ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-label">// 01. About</div>
+    <h2 class="section-title">Who I Am</h2>
+    <div class="about-grid">
+      <div class="about-bio glass-card reveal">
+        <p>I am <strong>Engr.Md.Oleullah (Oli)</strong> — an Electrical &amp; Electronic Engineer, Cyber Security professional, Web Developer, Researcher, and serial Entrepreneur based in Bangladesh.</p>
+        <p>My career spans multiple high-impact domains: from designing electronic systems and securing digital infrastructures to building healthcare and media enterprises. As the <strong>Managing Director of Health Guard Bangladesh Ltd.</strong>, I lead initiatives that bridge technology and public health.</p>
+        <p>As the <strong>Founder of an Electronics Business</strong> and <strong>Publisher of Khabor Bangla</strong>, I combine engineering precision with entrepreneurial vision. My academic work has resulted in <strong>3 published research papers</strong>, and I hold a <strong>Government-certified Pharmacy Technician</strong> credential (Category-C).</p>
+        <p>I believe the most meaningful problems sit at the intersection of engineering, security, and business — and I have dedicated my career to solving them.</p>
+        <div class="about-tags">
+          <span class="tag">EEE Engineer</span>
+          <span class="tag">Cyber Security</span>
+          <span class="tag">Web Dev</span>
+          <span class="tag">Researcher</span>
+          <span class="tag">Entrepreneur</span>
+          <span class="tag">Healthcare</span>
+          <span class="tag">Media</span>
+          <span class="tag">Electronics</span>
+        </div>
+      </div>
+      <div class="about-info reveal">
+        <div class="info-card glass-card">
+          <div class="info-row"><span class="info-key">Name</span><span class="info-val">Engr.Md.Oleullah (Oli)</span></div>
+          <div class="info-row"><span class="info-key">Location</span><span class="info-val">Dhaka, Bangladesh</span></div>
+          <div class="info-row"><span class="info-key">Education</span><span class="info-val">B.Sc. EEE</span></div>
+          <div class="info-row"><span class="info-key">Certification</span><span class="info-val">Pharmacy Tech (Govt. Cat-C)</span></div>
+          <div class="info-row"><span class="info-key">Research</span><span class="info-val">3 Published Papers</span></div>
+          <div class="info-row"><span class="info-key">Status</span><span class="info-val available">Available for Collaboration</span></div>
+        </div>
+        <div class="about-certs glass-card">
+          <h4>Core Domains</h4>
+          <ul class="domain-list">
+            <li>⚡ Electrical &amp; Electronic Engineering</li>
+            <li>🔐 Cyber Security &amp; Digital Forensics</li>
+            <li>🌐 Full-Stack Web Development</li>
+            <li>🔬 Applied Research &amp; Publications</li>
+            <li>🏥 Healthcare Management</li>
+            <li>📰 Digital Media &amp; Publishing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ SKILLS ═══════════════════════════════ -->
+<section class="section section-alt" id="skills">
+  <div class="container">
+    <div class="section-label">// 02. Skills</div>
+    <h2 class="section-title">Technical Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-group glass-card reveal">
+        <h3 class="skill-group-title">Engineering &amp; Hardware</h3>
+        <div class="skill-bar-wrap">
+          <div class="skill-meta"><span>Electrical Engineering</span><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="95"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-meta"><span>Electronics</span><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="95"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-meta"><span>Circuit Design &amp; PCB</span><span class="skill-pct">88%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="88"></div></div>
+        </div>
+      </div>
+      <div class="skill-group glass-card reveal">
+        <h3 class="skill-group-title">Digital &amp; Security</h3>
+        <div class="skill-bar-wrap">
+          <div class="skill-meta"><span>Cyber Security</span><span class="skill-pct">85%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-meta"><span>Web Development</span><span class="skill-pct">85%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-meta"><span>Network Security</span><span class="skill-pct">80%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="80"></div></div>
+        </div>
+      </div>
+      <div class="skill-group glass-card reveal">
+        <h3 class="skill-group-title">Business &amp; Research</h3>
+        <div class="skill-bar-wrap">
+          <div class="skill-meta"><span>Business Management</span><span class="skill-pct">90%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-meta"><span>Research &amp; Publishing</span><span class="skill-pct">80%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="80"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-meta"><span>Healthcare Management</span><span class="skill-pct">80%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="80"></div></div>
+        </div>
+      </div>
+    </div>
+    <!-- Tech icons -->
+    <div class="tech-stack reveal">
+      <div class="tech-icon">HTML5</div>
+      <div class="tech-icon">CSS3</div>
+      <div class="tech-icon">JavaScript</div>
+      <div class="tech-icon">Python</div>
+      <div class="tech-icon">Linux</div>
+      <div class="tech-icon">Kali</div>
+      <div class="tech-icon">Wireshark</div>
+      <div class="tech-icon">WordPress</div>
+      <div class="tech-icon">MySQL</div>
+      <div class="tech-icon">AutoCAD</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ EXPERIENCE ═══════════════════════════════ -->
+<section class="section" id="experience">
+  <div class="container">
+    <div class="section-label">// 03. Experience</div>
+    <h2 class="section-title">Professional Journey</h2>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-dot"><span>💼</span></div>
+        <div class="tl-content glass-card">
+          <div class="tl-header">
+            <h3>Managing Director</h3>
+            <span class="tl-company">Health Guard Bangladesh Ltd.</span>
+          </div>
+          <span class="tl-date">Current</span>
+          <p>Leading strategic direction, operations, and growth of a healthcare technology company serving Bangladesh. Overseeing product development, partnerships, regulatory compliance, and team leadership across departments.</p>
+          <div class="tl-tags"><span>Healthcare</span><span>Leadership</span><span>Business Strategy</span></div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"><span>📰</span></div>
+        <div class="tl-content glass-card">
+          <div class="tl-header">
+            <h3>Owner &amp; Publisher</h3>
+            <span class="tl-company">Khabor Bangla Online News Portal</span>
+          </div>
+          <span class="tl-date">Current</span>
+          <p>Founded and manage <a href="https://www.khaborbangla.com" target="_blank" class="inline-link">khaborbangla.com</a> — a digital news platform delivering timely Bangladeshi news to readers nationwide and internationally. Overseeing editorial direction, digital strategy, and platform operations.</p>
+          <div class="tl-tags"><span>Media</span><span>Publishing</span><span>Digital Strategy</span></div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"><span>⚡</span></div>
+        <div class="tl-content glass-card">
+          <div class="tl-header">
+            <h3>Founder</h3>
+            <span class="tl-company">Electronics Business</span>
+          </div>
+          <span class="tl-date">Current</span>
+          <p>Built an electronics business from the ground up — sourcing, servicing, and distributing electronic components and solutions to B2B and retail clients across Bangladesh. Leveraging engineering expertise to ensure product quality and technical support.</p>
+          <div class="tl-tags"><span>Entrepreneurship</span><span>Electronics</span><span>Sales</span></div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"><span>💻</span></div>
+        <div class="tl-content glass-card">
+          <div class="tl-header">
+            <h3>IT Engineer</h3>
+            <span class="tl-company">Technology Company</span>
+          </div>
+          <span class="tl-date">Prior Role</span>
+          <p>Managed IT infrastructure, network security, and system administration. Developed web-based tools and maintained secure enterprise environments. Contributed to cyber security protocols and digital transformation initiatives.</p>
+          <div class="tl-tags"><span>IT</span><span>Networking</span><span>Cyber Security</span></div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"><span>🔧</span></div>
+        <div class="tl-content glass-card">
+          <div class="tl-header">
+            <h3>Service Engineer</h3>
+            <span class="tl-company">Electronics Company</span>
+          </div>
+          <span class="tl-date">Prior Role</span>
+          <p>Provided technical service, fault diagnosis, and repair of electronic equipment. Delivered customer support and on-site maintenance, ensuring operational reliability of complex electronic systems.</p>
+          <div class="tl-tags"><span>Electronics</span><span>Service</span><span>Troubleshooting</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ RESEARCH ═══════════════════════════════ -->
+<section class="section section-alt" id="research">
+  <div class="container">
+    <div class="section-label">// 04. Research</div>
+    <h2 class="section-title">Publications &amp; Research</h2>
+    <p class="section-sub">Peer-reviewed research contributions in engineering, technology, and applied sciences.</p>
+    <div class="research-grid">
+      <div class="research-card glass-card reveal">
+        <div class="research-meta">
+          <span class="research-badge">Published</span>
+          <span class="research-year">2024</span>
+        </div>
+        <div class="research-icon">📄</div>
+        <h3>Research Paper Title One</h3>
+        <p class="research-journal">Journal / Conference Name — International Publication</p>
+        <p class="research-abstract">A comprehensive study exploring [topic area]. This research presents novel findings on the intersection of electrical engineering and digital security, with implications for infrastructure protection in developing nations.</p>
+        <div class="research-tags"><span>EEE</span><span>Cyber Security</span><span>Applied Research</span></div>
+        <div class="research-actions">
+          <a href="#" class="btn btn-sm btn-primary">Download PDF</a>
+          <a href="#" class="btn btn-sm btn-ghost">View Abstract</a>
+        </div>
+      </div>
+      <div class="research-card glass-card reveal">
+        <div class="research-meta">
+          <span class="research-badge">Published</span>
+          <span class="research-year">2023</span>
+        </div>
+        <div class="research-icon">📄</div>
+        <h3>Research Paper Title Two</h3>
+        <p class="research-journal">Journal / Conference Name — International Publication</p>
+        <p class="research-abstract">An investigation into [topic area] focusing on practical applications within Bangladesh's technological landscape. Findings contribute to the body of knowledge on network resilience and healthcare digitization.</p>
+        <div class="research-tags"><span>Healthcare Tech</span><span>Networking</span><span>IoT</span></div>
+        <div class="research-actions">
+          <a href="#" class="btn btn-sm btn-primary">Download PDF</a>
+          <a href="#" class="btn btn-sm btn-ghost">View Abstract</a>
+        </div>
+      </div>
+      <div class="research-card glass-card reveal">
+        <div class="research-meta">
+          <span class="research-badge">Published</span>
+          <span class="research-year">2022</span>
+        </div>
+        <div class="research-icon">📄</div>
+        <h3>Research Paper Title Three</h3>
+        <p class="research-journal">Journal / Conference Name — International Publication</p>
+        <p class="research-abstract">Empirical analysis of [topic area] with a focus on real-world deployment in South Asian contexts. This paper proposes a scalable framework for electronic systems in resource-constrained environments.</p>
+        <div class="research-tags"><span>Electronics</span><span>Systems Design</span><span>South Asia</span></div>
+        <div class="research-actions">
+          <a href="#" class="btn btn-sm btn-primary">Download PDF</a>
+          <a href="#" class="btn btn-sm btn-ghost">View Abstract</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PROJECTS ═══════════════════════════════ -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-label">// 05. Projects</div>
+    <h2 class="section-title">Projects &amp; Work</h2>
+    <div class="project-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="cyber">Cyber Security</button>
+      <button class="filter-btn" data-filter="web">Web Dev</button>
+      <button class="filter-btn" data-filter="engineering">Engineering</button>
+      <button class="filter-btn" data-filter="electronics">Electronics</button>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card glass-card reveal" data-cat="cyber">
+        <div class="proj-cat-tag">🔐 Cyber Security</div>
+        <h3>Network Vulnerability Assessment</h3>
+        <p>Comprehensive security audit and penetration testing framework for SME-level networks in Bangladesh. Identified and mitigated critical vulnerabilities.</p>
+        <div class="proj-stack"><span>Kali Linux</span><span>Wireshark</span><span>Metasploit</span></div>
+        <a href="#" class="proj-link">View Details →</a>
+      </div>
+      <div class="project-card glass-card reveal" data-cat="web">
+        <div class="proj-cat-tag">🌐 Web Development</div>
+        <h3>Khabor Bangla News Portal</h3>
+        <p>Designed and built a full-featured Bangla news portal serving thousands of daily readers. Custom CMS, SEO optimization, and mobile-first design.</p>
+        <div class="proj-stack"><span>WordPress</span><span>PHP</span><span>MySQL</span></div>
+        <a href="https://www.khaborbangla.com" target="_blank" class="proj-link">Visit Site →</a>
+      </div>
+      <div class="project-card glass-card reveal" data-cat="web">
+        <div class="proj-cat-tag">🌐 Web Development</div>
+        <h3>Health Guard Corporate Website</h3>
+        <p>Corporate website for Health Guard Bangladesh Ltd. with patient information, service listings, appointment booking, and admin dashboard.</p>
+        <div class="proj-stack"><span>HTML/CSS</span><span>JavaScript</span><span>PHP</span></div>
+        <a href="#" class="proj-link">View Details →</a>
+      </div>
+      <div class="project-card glass-card reveal" data-cat="engineering">
+        <div class="proj-cat-tag">⚡ Engineering</div>
+        <h3>Solar Power Monitoring System</h3>
+        <p>Designed an IoT-enabled solar panel monitoring system with real-time data visualization, fault detection, and performance analytics for rural deployment.</p>
+        <div class="proj-stack"><span>Arduino</span><span>IoT</span><span>Python</span></div>
+        <a href="#" class="proj-link">View Details →</a>
+      </div>
+      <div class="project-card glass-card reveal" data-cat="electronics">
+        <div class="proj-cat-tag">🔧 Electronics</div>
+        <h3>Automated Home Control System</h3>
+        <p>PCB design and firmware development for a low-cost home automation controller. Deployed in residential settings across Dhaka.</p>
+        <div class="proj-stack"><span>PCB Design</span><span>Microcontroller</span><span>RF</span></div>
+        <a href="#" class="proj-link">View Details →</a>
+      </div>
+      <div class="project-card glass-card reveal" data-cat="cyber">
+        <div class="proj-cat-tag">🔐 Cyber Security</div>
+        <h3>Secure File Encryption Tool</h3>
+        <p>Developed a standalone AES-256 encryption application for secure document management, designed for healthcare data protection compliance.</p>
+        <div class="proj-stack"><span>Python</span><span>AES-256</span><span>Cryptography</span></div>
+        <a href="#" class="proj-link">View Details →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ VENTURES ═══════════════════════════════ -->
+<section class="section section-alt" id="ventures">
+  <div class="container">
+    <div class="section-label">// 06. Ventures</div>
+    <h2 class="section-title">Companies &amp; Ventures</h2>
+    <div class="ventures-grid">
+      <div class="venture-card glass-card reveal">
+        <div class="venture-logo">🏥</div>
+        <div class="venture-body">
+          <h3>Health Guard Bangladesh Ltd.</h3>
+          <span class="venture-role">Managing Director &amp; Co-Founder</span>
+          <p>A healthcare technology and services company based in Bangladesh, delivering innovative solutions at the intersection of health and technology. Services include health consultancy, medical supply distribution, and digital health platforms aimed at improving public health outcomes.</p>
+          <div class="venture-highlights">
+            <div class="vh-item"><span class="vh-n">MD</span><span class="vh-l">Position</span></div>
+            <div class="vh-item"><span class="vh-n">BD</span><span class="vh-l">Market</span></div>
+            <div class="vh-item"><span class="vh-n">Health</span><span class="vh-l">Sector</span></div>
+          </div>
+          <a href="#contact" class="btn btn-sm btn-primary">Learn More</a>
+        </div>
+      </div>
+      <div class="venture-card glass-card reveal">
+        <div class="venture-logo">📰</div>
+        <div class="venture-body">
+          <h3>Khabor Bangla</h3>
+          <span class="venture-role">Owner &amp; Publisher</span>
+          <p>An online Bangla-language news portal delivering accurate, timely journalism to Bangladeshi readers at home and abroad. The platform covers national news, technology, business, sports, and international affairs with a digital-first editorial approach.</p>
+          <div class="venture-highlights">
+            <div class="vh-item"><span class="vh-n">Online</span><span class="vh-l">Platform</span></div>
+            <div class="vh-item"><span class="vh-n">Bangla</span><span class="vh-l">Language</span></div>
+            <div class="vh-item"><span class="vh-n">Media</span><span class="vh-l">Sector</span></div>
+          </div>
+          <a href="https://www.khaborbangla.com" target="_blank" class="btn btn-sm btn-primary">Visit Website →</a>
+        </div>
+      </div>
+      <div class="venture-card glass-card reveal">
+        <div class="venture-logo">⚡</div>
+        <div class="venture-body">
+          <h3>Electronics Business</h3>
+          <span class="venture-role">Founder &amp; Owner</span>
+          <p>A specialist electronics business providing high-quality components, devices, and technical services to commercial clients and retail customers across Bangladesh. Founded on engineering expertise, the venture bridges the gap between technical knowledge and market needs.</p>
+          <div class="venture-highlights">
+            <div class="vh-item"><span class="vh-n">B2B</span><span class="vh-l">Focus</span></div>
+            <div class="vh-item"><span class="vh-n">EEE</span><span class="vh-l">Domain</span></div>
+            <div class="vh-item"><span class="vh-n">Tech</span><span class="vh-l">Sector</span></div>
+          </div>
+          <a href="#contact" class="btn btn-sm btn-primary">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CERTIFICATIONS ═══════════════════════════════ -->
+<section class="section" id="certifications">
+  <div class="container">
+    <div class="section-label">// 07. Credentials</div>
+    <h2 class="section-title">Certifications &amp; Degrees</h2>
+    <div class="certs-grid">
+      <div class="cert-card glass-card reveal">
+        <div class="cert-icon">🎓</div>
+        <h3>B.Sc. in Electrical &amp; Electronic Engineering</h3>
+        <p class="cert-issuer">University — Bangladesh</p>
+        <p class="cert-desc">Four-year undergraduate degree covering power systems, electronics, telecommunications, digital systems, and signal processing.</p>
+        <span class="cert-badge">Degree</span>
+      </div>
+      <div class="cert-card glass-card reveal">
+        <div class="cert-icon">💊</div>
+        <h3>Certified Pharmacy Technician (Category-C)</h3>
+        <p class="cert-issuer">Bangladesh Government — Ministry of Health</p>
+        <p class="cert-desc">Government-issued certification for pharmacy technician operations, pharmaceutical regulations, and healthcare compliance under Category-C designation.</p>
+        <span class="cert-badge">Government Cert.</span>
+      </div>
+      <div class="cert-card glass-card reveal">
+        <div class="cert-icon">🔐</div>
+        <h3>Cyber Security Professional Certification</h3>
+        <p class="cert-issuer">Recognized Certifying Body</p>
+        <p class="cert-desc">Advanced certification covering ethical hacking, penetration testing, network security, and incident response methodologies.</p>
+        <span class="cert-badge">Professional Cert.</span>
+      </div>
+      <div class="cert-card glass-card reveal">
+        <div class="cert-icon">🌐</div>
+        <h3>Web Development Certification</h3>
+        <p class="cert-issuer">Recognized Certifying Body</p>
+        <p class="cert-desc">Comprehensive certification in modern web development including frontend frameworks, backend systems, database management, and deployment.</p>
+        <span class="cert-badge">Professional Cert.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ ACHIEVEMENTS ═══════════════════════════════ -->
+<section class="section section-alt" id="achievements">
+  <div class="container">
+    <div class="section-label">// 08. Achievements</div>
+    <h2 class="section-title">By The Numbers</h2>
+    <div class="counters-grid">
+      <div class="counter-card glass-card reveal">
+        <div class="counter-icon">📄</div>
+        <div class="counter-num" data-target="3">0</div>
+        <div class="counter-label">Published Research Papers</div>
+      </div>
+      <div class="counter-card glass-card reveal">
+        <div class="counter-icon">🏢</div>
+        <div class="counter-num" data-target="3">0</div>
+        <div class="counter-label">Companies Founded / Led</div>
+      </div>
+      <div class="counter-card glass-card reveal">
+        <div class="counter-icon">🎓</div>
+        <div class="counter-num" data-target="4">0</div>
+        <div class="counter-label">Professional Certifications</div>
+      </div>
+      <div class="counter-card glass-card reveal">
+        <div class="counter-icon">⚡</div>
+        <div class="counter-num" data-target="7">0</div>
+        <div class="counter-label">Professional Disciplines</div>
+      </div>
+      <div class="counter-card glass-card reveal">
+        <div class="counter-icon">🔐</div>
+        <div class="counter-num" data-target="50">0</div>
+        <div class="counter-label">Security Assessments</div>
+      </div>
+      <div class="counter-card glass-card reveal">
+        <div class="counter-icon">🌐</div>
+        <div class="counter-num" data-target="20">0</div>
+        <div class="counter-label">Web Projects Delivered</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ GALLERY ═══════════════════════════════ -->
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="section-label">// 09. Gallery</div>
+    <h2 class="section-title">Photo Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal" style="--delay:0s">
+        <img src="gallery-1.jpg" alt="Professional photo 1" onerror="this.parentElement.classList.add('gallery-placeholder')" />
+        <div class="gallery-overlay"><span>Professional</span></div>
+      </div>
+      <div class="gallery-item reveal" style="--delay:0.1s">
+        <img src="gallery-2.jpg" alt="Professional photo 2" onerror="this.parentElement.classList.add('gallery-placeholder')" />
+        <div class="gallery-overlay"><span>Workspace</span></div>
+      </div>
+      <div class="gallery-item reveal" style="--delay:0.2s">
+        <img src="gallery-3.jpg" alt="Professional photo 3" onerror="this.parentElement.classList.add('gallery-placeholder')" />
+        <div class="gallery-overlay"><span>Research</span></div>
+      </div>
+      <div class="gallery-item reveal" style="--delay:0.3s">
+        <img src="gallery-4.jpg" alt="Professional photo 4" onerror="this.parentElement.classList.add('gallery-placeholder')" />
+        <div class="gallery-overlay"><span>Team</span></div>
+      </div>
+      <div class="gallery-item reveal" style="--delay:0.4s">
+        <img src="gallery-5.jpg" alt="Professional photo 5" onerror="this.parentElement.classList.add('gallery-placeholder')" />
+        <div class="gallery-overlay"><span>Event</span></div>
+      </div>
+      <div class="gallery-item reveal" style="--delay:0.5s">
+        <img src="gallery-6.jpg" alt="Professional photo 6" onerror="this.parentElement.classList.add('gallery-placeholder')" />
+        <div class="gallery-overlay"><span>Projects</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
+<section class="section section-alt" id="contact">
+  <div class="container">
+    <div class="section-label">// 10. Contact</div>
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-sub">Whether you're looking for collaboration, research partnership, business opportunity, or just want to say hello — my inbox is open.</p>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-card glass-card">
+          <a href="mailto:oleullah123@yahoo.com" class="contact-method">
+            <div class="cm-icon">✉️</div>
+            <div class="cm-text"><span class="cm-label">Email</span><span class="cm-val">oleullah123@yahoo.com</span></div>
+          </a>
+          <a href="https://wa.me/8801617700502" target="_blank" class="contact-method">
+            <div class="cm-icon">💬</div>
+            <div class="cm-text"><span class="cm-label">WhatsApp</span><span class="cm-val">+880 16 1770 0502</span></div>
+          </a>
+          <div class="contact-method">
+            <div class="cm-icon">📍</div>
+            <div class="cm-text"><span class="cm-label">Location</span><span class="cm-val">Dhaka, Bangladesh</span></div>
+          </div>
+        </div>
+        <div class="quick-actions glass-card">
+          <h4>Quick Connect</h4>
+          <a href="https://wa.me/8801617700502" target="_blank" class="btn btn-wa full-width">💬 Message on WhatsApp</a>
+          <a href="mailto:oleullah123@yahoo.com" class="btn btn-primary full-width">✉️ Send Email</a>
+        </div>
+        <div class="social-links glass-card">
+          <h4>Social &amp; Professional</h4>
+          <div class="social-grid">
+            <a href="#" target="_blank" class="social-btn" aria-label="LinkedIn">in</a>
+            <a href="#" target="_blank" class="social-btn" aria-label="Facebook">f</a>
+            <a href="#" target="_blank" class="social-btn" aria-label="Twitter/X">𝕏</a>
+            <a href="#" target="_blank" class="social-btn" aria-label="ResearchGate">R</a>
+            <a href="#" target="_blank" class="social-btn" aria-label="GitHub">⌥</a>
+            <a href="https://www.khaborbangla.com" target="_blank" class="social-btn" aria-label="Khabor Bangla">KB</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal">
+        <form class="contact-form glass-card" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" name="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <label for="femail">Email Address</label>
+              <input type="email" id="femail" name="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fsubject">Subject</label>
+            <input type="text" id="fsubject" name="subject" placeholder="How can I help?" />
+          </div>
+          <div class="form-group">
+            <label for="fmsg">Message</label>
+            <textarea id="fmsg" name="message" rows="5" placeholder="Tell me about your project or inquiry..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary full-width">Send Message →</button>
+          <p class="form-note">I typically respond within 24 hours.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo" style="font-size:1.4rem"><span class="logo-bracket">&lt;</span>Md.Oleullah (Oli)<span class="logo-bracket">/&gt;</span></div>
+        <p>Electrical Engineer · Cyber Security Professional<br>Entrepreneur · Researcher · Publisher</p>
+        <p class="footer-copy">Dhaka, Bangladesh 🇧🇩</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h4>Ventures</h4>
+        <a href="#">Health Guard Bangladesh</a>
+        <a href="https://www.khaborbangla.com" target="_blank">Khabor Bangla</a>
+        <a href="#">Electronics Business</a>
+      </div>
+      <div class="footer-social-col">
+        <h4>Connect</h4>
+        <div class="footer-socials">
+          <a href="#" target="_blank">LinkedIn</a>
+          <a href="#" target="_blank">Facebook</a>
+          <a href="#" target="_blank">Twitter/X</a>
+          <a href="#" target="_blank">ResearchGate</a>
+          <a href="https://wa.me/8801617700502" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Engr.Md.Oleullah (Oli). All rights reserved.</p>
+      <p>Designed &amp; Developed by Engr.Md.Oleullah (Oli) | Dhaka, Bangladesh</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
