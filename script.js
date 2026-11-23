@@ -10,15 +10,15 @@
   const canvas = document.getElementById('particleCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  let W, H, particles = [];
-  const PARTICLE_COUNT = 70;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = () => window.innerWidth < 768;
   const CONNECT_DIST = 140;
+  let W, H, particles = [], running = true;
 
   function resize() {
     W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
   }
-  window.addEventListener('resize', resize);
   resize();
 
   function createParticle() {
@@ -32,42 +32,71 @@
     };
   }
 
-  for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(createParticle());
+  function fill() {
+    const target = isMobile() ? 30 : 70;
+    while (particles.length < target) particles.push(createParticle());
+    particles.length = Math.min(particles.length, target);
+  }
+  fill();
+
+  // Mobile browsers fire "resize" whenever the address bar shows/hides.
+  // Ignore those small height-only changes so the canvas doesn't flicker.
+  let lastW = window.innerWidth, lastH = window.innerHeight;
+  window.addEventListener('resize', () => {
+    const w = window.innerWidth, h = window.innerHeight;
+    if (w === lastW && Math.abs(h - lastH) < 150) return;
+    lastW = w; lastH = h;
+    resize();
+    fill();
+  });
 
   function draw() {
+    if (!running) return;
     ctx.clearRect(0, 0, W, H);
+    const connect = !isMobile();
 
     particles.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0 || p.x > W) p.vx *= -1;
-      if (p.y < 0 || p.y > H) p.vy *= -1;
-
+      if (!reduceMotion) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+      }
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(77, 166, 255, ${p.alpha})`;
       ctx.fill();
     });
 
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < CONNECT_DIST) {
-          const alpha = (1 - dist / CONNECT_DIST) * 0.12;
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(77, 166, 255, ${alpha})`;
-          ctx.lineWidth = 0.8;
-          ctx.stroke();
+    if (connect) {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < CONNECT_DIST) {
+            const alpha = (1 - dist / CONNECT_DIST) * 0.12;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(77, 166, 255, ${alpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
         }
       }
     }
+    if (reduceMotion) { running = false; return; }   // draw one static frame only
     requestAnimationFrame(draw);
   }
   draw();
+
+  // Save battery: stop animating when the tab is in the background
+  document.addEventListener('visibilitychange', () => {
+    if (reduceMotion) return;
+    if (document.hidden) { running = false; }
+    else if (!running) { running = true; requestAnimationFrame(draw); }
+  });
 })();
 
 /* ── TYPING ANIMATION ── */
@@ -122,32 +151,36 @@
 (function initHamburger() {
   const btn = document.getElementById('hamburger');
   const links = document.getElementById('navLinks');
+  const nav = document.getElementById('navbar');
   if (!btn || !links) return;
-  btn.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-    const spans = btn.querySelectorAll('span');
-    if (open) {
-      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-      spans[1].style.opacity = '0';
-      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-    } else {
-      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-    }
+
+  function setOpen(open) {
+    links.classList.toggle('open', open);
+    btn.classList.toggle('open', open);
+    if (nav) nav.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  }
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setOpen(!links.classList.contains('open'));
   });
-  links.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      links.classList.remove('open');
-      const spans = btn.querySelectorAll('span');
-      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-    });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('click', (e) => {
+    if (links.classList.contains('open') && !links.contains(e.target)) setOpen(false);
   });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 900) setOpen(false); });
 })();
 
 /* ── SCROLL REVEAL ── */
 (function initReveal() {
   const items = document.querySelectorAll('.reveal');
   if (!items.length) return;
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('visible'));
+    return;
+  }
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -155,7 +188,7 @@
         obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
   items.forEach(el => obs.observe(el));
 })();
 
@@ -242,19 +275,23 @@
   const sections = document.querySelectorAll('section[id]');
   const links = document.querySelectorAll('.nav-links a');
   if (!sections.length || !links.length) return;
+  let ticking = false;
 
-  window.addEventListener('scroll', () => {
+  function update() {
     let current = '';
     sections.forEach(sec => {
-      if (window.scrollY >= sec.offsetTop - 120) {
-        current = sec.getAttribute('id');
-      }
+      if (window.scrollY >= sec.offsetTop - 120) current = sec.getAttribute('id');
     });
     links.forEach(a => {
       const href = a.getAttribute('href').replace('#', '');
       a.style.color = href === current ? 'var(--blue-lt)' : '';
     });
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
   }, { passive: true });
+  update();
 })();
 
 /* ── CONTACT FORM ── */
@@ -285,7 +322,9 @@
 /* ── SMOOTH ANCHOR SCROLL ── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
+    const href = a.getAttribute('href');
+    if (href === '#') { e.preventDefault(); return; }   // placeholder link
+    const target = document.querySelector(href);
     if (!target) return;
     e.preventDefault();
     const offset = 68;
@@ -296,27 +335,62 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 /* ── GALLERY LIGHTBOX ── */
 (function initLightbox() {
-  const items = document.querySelectorAll('.gallery-item img');
+  const items = document.querySelectorAll('.gallery-item');
   if (!items.length) return;
 
   const lb = document.createElement('div');
+  lb.setAttribute('role', 'dialog');
+  lb.setAttribute('aria-modal', 'true');
   lb.style.cssText = `
     display:none;position:fixed;inset:0;z-index:9000;
     background:rgba(10,25,47,0.96);backdrop-filter:blur(10px);
-    align-items:center;justify-content:center;cursor:zoom-out;
+    align-items:center;justify-content:center;cursor:zoom-out;padding:16px;
   `;
   const img = document.createElement('img');
-  img.style.cssText = 'max-width:88vw;max-height:88vh;border-radius:10px;object-fit:contain;';
+  img.style.cssText = 'max-width:100%;max-height:88vh;border-radius:10px;object-fit:contain;';
+  const close = document.createElement('button');
+  close.type = 'button';
+  close.setAttribute('aria-label', 'Close');
+  close.textContent = '✕';
+  close.style.cssText = `
+    position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;
+    background:rgba(17,34,64,0.9);color:#fff;font-size:1.1rem;border:1px solid rgba(77,166,255,0.3);
+  `;
   lb.appendChild(img);
+  lb.appendChild(close);
   document.body.appendChild(lb);
 
-  items.forEach(i => {
-    i.style.cursor = 'zoom-in';
-    i.addEventListener('click', () => {
-      img.src = i.src;
+  function hide() { lb.style.display = 'none'; document.body.style.overflow = ''; }
+
+  items.forEach(item => {
+    const thumb = item.querySelector('img');
+    item.style.cursor = 'zoom-in';
+    item.addEventListener('click', () => {
+      if (!thumb || !thumb.complete || thumb.naturalWidth === 0) return;  // skip placeholders
+      img.src = thumb.currentSrc || thumb.src;
+      img.alt = thumb.alt;
       lb.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
     });
   });
-  lb.addEventListener('click', () => { lb.style.display = 'none'; });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.style.display = 'none'; });
+  lb.addEventListener('click', hide);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
+})();
+
+/* ── RESEARCH "READ MORE" (mobile only; button is hidden by CSS on desktop) ── */
+(function initReadMore() {
+  document.querySelectorAll('.research-abstract').forEach(p => {
+    p.classList.add('is-clamped');
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'read-more';
+    btn.textContent = 'Read more ↓';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', () => {
+      const clamped = p.classList.toggle('is-clamped');
+      btn.textContent = clamped ? 'Read more ↓' : 'Show less ↑';
+      btn.setAttribute('aria-expanded', String(!clamped));
+    });
+    p.insertAdjacentElement('afterend', btn);
+  });
 })();
