@@ -658,6 +658,8 @@ a, button, .btn, .filter-btn { -webkit-tap-highlight-color: rgba(77,166,255,0.15
 
 /* ── Tablets & phones ── */
 @media (max-width: 768px) {
+  .hero-name { font-size: clamp(1.6rem, 7.6vw, 3.2rem); overflow-wrap: normal; }
+  .glow-text { display: inline-block; padding-right: 0.06em; }
   .section { padding: 64px 0; }
   .section-title { margin-bottom: 32px; }
   .section-sub { margin-bottom: 32px; }
@@ -737,7 +739,6 @@ a, button, .btn, .filter-btn { -webkit-tap-highlight-color: rgba(77,166,255,0.15
 @media (max-width: 480px) {
   .container { padding: 0 20px; }
   .hero-inner { padding: 40px 20px 80px; }
-  .hero-name { font-size: clamp(2.1rem, 10.5vw, 2.8rem); }
   .hero-headline { font-size: 1.3rem; }
   .hero-ctas { flex-direction: column; align-items: stretch; margin-bottom: 36px; }
   .hero-ctas .btn { width: 100%; max-width: 340px; margin: 0 auto; }
